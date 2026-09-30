@@ -38,6 +38,12 @@
     @apply mt-6 mb-4;
   }
 
+  /* Plain paragraphs a notch below the base size. Zero specificity so that
+     utilities (text-sm, text-xs) and .aro-card p keep the upper hand. */
+  :where(p) {
+    font-size: 0.85em;
+  }
+
   /* "Subtitle" dimming: only when nothing follows the first paragraph */
   h1 + p:last-child {
     @apply -mt-2 mb-4 opacity-60;
