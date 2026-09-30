@@ -100,31 +100,51 @@ Tout est en licence MIT, compatible avec les dernières versions de PHP et Symfo
 <p class="mt-3 text-sm opacity-75">Listing avec tri et recherche · formulaires à onglets · médias et recadrage · utilisateurs et rôles.</p>
 
 <!--
-Voilà à quoi ça ressemble. Un listing avec tri, recherche et pagination. Un formulaire d'édition organisé en onglets, avec les images, les relations, l'éditeur riche. Les utilisateurs et les droits sont déjà là.
+Voilà à quoi ça ressemble. 
 
-Rien d'exotique : c'est un back-office propre, et il vit dans votre projet Symfony, pas à côté.
+- Des listes basées sur Datatable, avec recherche et pagination. 
+- Un formulaire d'édition organisé en onglets
+- Gestion et rendu des images
+- Gestion et rendu des relations et collections
+- Editeur QuillJs embarqué 
+- Les utilisateurs et les droits sont déjà là.
+
+Rien d'exotique : c'est un back-office propre et extensible.
 -->
 
 ---
 
 <div class="kicker">Pas une black box</div>
 
-# De l'événementiel à l'architecture
+# Ce que c'est, ce que ce n'est pas
 
-<img src="./assets/client-interfaces.jpg" class="mx-auto max-h-52 object-contain rounded-lg shadow" alt="Dashboards de trois clients Aropixel avec leurs thèmes personnalisés">
-
-<div class="mt-4 text-sm opacity-75">
-
-Garorock (festival) · Aux Portes de Bordeaux (immobilier) · V&A (architecture)
-
-**Une fondation, pas une cage.** Vos entités, vos FormTypes, vos controllers : c'est du Symfony, le bundle ne se met pas en travers.
-
+<div class="grid grid-cols-2 gap-4 mt-4">
+  <div class="aro-card">
+    <h4>Ce n'est pas</h4>
+    <ul class="text-sm mt-2 space-y-1">
+      <li><strong>Un EasyAdmin</strong> : pas de configuration à écrire pour obtenir des écrans.</li>
+      <li><strong>Une black box</strong> : rien à contourner quand vous sortez des rails.</li>
+      <li><strong>Un CMS</strong> : aucun modèle de contenu imposé.</li>
+    </ul>
+  </div>
+  <div class="aro-card">
+    <h4>C'est</h4>
+    <ul class="text-sm mt-2 space-y-1">
+      <li><strong>Une boîte à outils</strong> pour développeurs Symfony.</li>
+      <li><strong>Du code qui vit dans votre projet</strong> : vos entités, vos FormTypes, vos controllers.</li>
+      <li><strong>Une fondation éprouvée</strong> : dix ans, tous nos projets.</li>
+    </ul>
+  </div>
 </div>
 
-<!--
-Trois clients, trois métiers qui n'ont rien à voir : un festival, de l'immobilier, un cabinet d'architecture. Et pourtant, la même fondation.
+<img src="./assets/client-interfaces.jpg" class="mx-auto mt-5 max-h-24 object-contain rounded-lg shadow opacity-90" alt="Dashboards de trois clients Aropixel : Garorock, Aux Portes de Bordeaux, V&A">
 
-Ce qui compte, c'est que ce n'est pas une black box. Le métier de chaque projet reste dans du code Symfony ordinaire : vos entités, vos FormTypes, vos controllers. Le bundle donne un socle solide et une interface soignée, et ensuite il s'efface. Quand vous devez sortir des rails, vous n'avez rien à contourner.
+<p class="mt-2 text-xs opacity-60 text-center">Garorock (festival) · Aux Portes de Bordeaux (immobilier) · V&A (architecture)</p>
+
+<!--
+Alors, soyons clairs sur ce que c'est. Ce n'est pas un EasyAdmin : vous n'écrivez pas de configuration pour décrire vos écrans. Ce n'est pas une black box, et ce n'est pas un CMS.
+
+C'est une boîte à outils pour développeurs. Le code vit dans votre projet, dans votre Symfony : vos entités, vos FormTypes, vos controllers. Le bundle vous donne le socle et les widgets, et il s'efface. Un festival, de l'immobilier, un cabinet d'architecture : même fondation, et le métier reste dans du code ordinaire.
 -->
 
 ---
