@@ -282,8 +282,8 @@ Chaque type a son bloc Twig. Si le rendu ne vous convient pas, vous le surcharge
 # Agents, créez directement
 
 <div class="aro-prompt">
-<span class="aro-prompt-label">Prompt</span>
-« Crée l'admin des articles : titre, couleur, éditeur riche, date de publication et tags. »
+<span class="aro-prompt-label">« Crée l'admin des articles : titre, couleur, éditeur riche, date de publication et tags. »</span>
+
 </div>
 
 <div class="grid grid-cols-2 gap-5 mt-3">
@@ -314,11 +314,13 @@ Puis `aropixel:make:crud` génère :
 <div class="text-sm opacity-75 mt-3">La skill Claude Code, livrée par castor-starter, complète colonnes, recherche et tri. Agents et devs : même toolbox.</div>
 
 <!--
-Et là, les agents. Un prompt : crée l'admin des articles, avec titre, couleur, éditeur riche, date et tags.
+Et c'est là que ça devient intéressant avec les agents. Un prompt : "crée l'admin des articles, avec titre, couleur, éditeur riche, date et tags".
 
-Comme tout est du Symfony ordinaire, l'agent écrit le FormType comme un dev. Puis make:crud génère le controller avec ses quatre méthodes, le template de liste et celui du formulaire. La skill livrée par castor-starter complète colonnes, recherche et tri.
+Comme tout est du Symfony ordinaire, l'agent écrit le FormType comme un dev. Puis il execute le make:crud maison qui génère le controller avec ses quatre méthodes, notre template de liste et celui du formulaire. 
 
-Pas de dialecte spécial, pas de couche en plus : les agents pilotent la même toolbox que nous.
+La skill livrée par castor-starter complète colonnes, recherche et tri.
+
+Juste une skill, pas de couche en plus : les agents pilotent la même toolbox que nous. Ca va juste encore plus vite.
 -->
 
 ---
