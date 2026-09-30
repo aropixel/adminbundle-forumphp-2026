@@ -142,9 +142,9 @@ Rien d'exotique : c'est un back-office propre et extensible.
 <p class="mt-2 text-xs opacity-60 text-center">Garorock (festival) · Aux Portes de Bordeaux (immobilier) · V&A (architecture)</p>
 
 <!--
-Alors, soyons clairs sur ce que c'est. Ce n'est pas un EasyAdmin : vous n'écrivez pas de configuration pour décrire vos écrans. Ce n'est pas une black box, et ce n'est pas un CMS.
+Ce n'est pas un EasyAdmin bis : vous n'écrivez pas de configuration pour décrire vos écrans. Ce n'est pas une black box, et ce n'est pas un CMS.
 
-C'est une boîte à outils pour développeurs. Le code vit dans votre projet, dans votre Symfony : vos entités, vos FormTypes, vos controllers. Le bundle vous donne le socle et les widgets, et il s'efface. Un festival, de l'immobilier, un cabinet d'architecture : même fondation, et le métier reste dans du code ordinaire.
+C'est une boîte à outils pour développeurs. Le code vit dans votre projet, dans votre Symfony : vos entités, vos FormTypes, vos controllers. Le bundle vous donne les services et les composants, et il s'efface.
 -->
 
 ---
@@ -170,7 +170,9 @@ castor-starter aropixel:contrib:admin ma-contrib
 </v-click>
 
 <!--
-Pour démarrer, on a castor-starter, un runner de tâches Castor. Une commande, et on a un projet Symfony complet : le Docker Starter de JoliCode, le bundle Admin installé avec un compte administrateur, les bundles Page, Blog et Menu à la carte, et le déploiement Clever Cloud déjà configuré.
+Pour pouvoir démarrer un projet en quelques secondes, on a mis en place castor-starter, un runner de tâches Castor. 
+
+En une commande, vous avez un projet Symfony complet : le Docker Starter de JoliCode, le bundle Admin installé avec un compte administrateur, les bundles Page, Blog et Menu à la carte, et le déploiement Clever Cloud déjà configuré.
 
 Et si on doit contribuer à la suite elle-même, même chose : une commande fork le bundle, monte une sandbox Symfony et l'installe en symlink. Chaque modification est visible immédiatement, sans composer update.
 -->
@@ -209,12 +211,64 @@ $builder
 
 <img src="./assets/form-widgets-example.png" class="mx-auto mt-3 max-h-36 rounded-lg shadow" alt="Le formulaire rendu : titre, catégorie, toggle publié, image de couverture avec upload">
 
-<p class="mt-2 text-sm opacity-75">Zéro configuration, zéro JavaScript. Pareil pour galeries, fichiers, collections, éditeur riche, dates, Select2…</p>
+<p class="mt-2 text-sm opacity-75">Zéro configuration, zéro JavaScript à écrire.</p>
 
 <!--
-La promesse, c'est celle-là. Un FormType Symfony ordinaire : un texte, une relation, un booléen, une image. Un template avec quatre form_row. Et le résultat : un select, un toggle, un upload avec médiathèque partagée et recadrage.
+La promesse de base, elle est toute simple. 
 
-Aucune configuration en plus, aucun JavaScript à écrire. Et c'est le même principe pour les galeries, les fichiers, les collections, l'éditeur riche, les dates.
+- Un formulaire Symfony ordinaire : un texte, une relation, un booléen, une image. 
+- Un template avec quatre form_row. 
+- Et le résultat : un select, un toggle, un upload avec médiathèque partagée et recadrage.
+
+Le layout et les bibliothèques sont prêtes. 
+Aucune configuration en plus, aucun JavaScript à écrire.
+-->
+
+---
+
+<div class="kicker">Embarqués dans le bundle</div>
+
+# Dix-neuf FormTypes prêts à l'emploi
+
+<div class="grid grid-cols-3 gap-4 mt-4 text-xs">
+  <div class="aro-card">
+    <h4>Médias</h4>
+    <ul class="mt-2 space-y-1">
+      <li><code>ImageType</code> upload, médiathèque, recadrage</li>
+      <li><code>GalleryType</code> images triables</li>
+      <li><code>FileType</code> fichier unique</li>
+      <li><code>GalleryType</code> collection de fichiers</li>
+      <li><code>VideoType</code> embed vidéo avec aperçu</li>
+    </ul>
+  </div>
+  <div class="aro-card">
+    <h4>Données</h4>
+    <ul class="mt-2 space-y-1">
+      <li><code>Select2Type</code> select avec recherche AJAX</li>
+      <li><code>FilterableEntityType</code> une entité</li>
+      <li><code>FilterableEntitiesType</code> plusieurs entités</li>
+      <li><code>EntityHiddenType</code> · <code>CollectionHiddenType</code></li>
+      <li><code>CollectionType</code> lignes triables en drag & drop</li>
+      <li><code>TranslatableType</code> · <code>SyliusTranslatableType</code></li>
+    </ul>
+  </div>
+  <div class="aro-card">
+    <h4>Saisie</h4>
+    <ul class="mt-2 space-y-1">
+      <li><code>EditorType</code> éditeur riche QuillJS, images intégrées</li>
+      <li><code>DateTimeType</code> · <code>DateType</code> · <code>TimeType</code> avec pickers</li>
+      <li><code>ColorType</code> color picker</li>
+      <li><code>ToggleSwitchType</code> interrupteur</li>
+    </ul>
+  </div>
+</div>
+
+<p class="mt-4 text-sm opacity-75">Chacun a son bloc Twig, surchargeable dans votre form theme.</p>
+
+<!--
+Le bundle en embarque dix-neuf FormTy, documentés. Les médias : images, galeries, fichiers, vidéo. Les données : Select2 avec recherche AJAX, collections triables, champs traduisibles. La saisie : éditeur riche, dates, couleur, toggle.
+
+Chaque type a son bloc Twig. Si le rendu ne vous convient pas, vous le surchargez dans votre form theme, comme d'habitude.
 -->
 
 ---
