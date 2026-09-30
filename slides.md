@@ -87,15 +87,17 @@ Tout est en licence MIT, compatible avec les dernières versions de PHP et Symfo
 
 ---
 
-<div class="kicker">Adaptable à chaque client</div>
+<div class="kicker">Adaptable à chaque métier</div>
 
-# Tout est configurable
+# De l'événementiel à l'architecture
 
 <img src="./assets/client-interfaces.jpg" class="mx-auto max-h-52 object-contain rounded-lg shadow" alt="Dashboards de trois clients Aropixel avec leurs thèmes personnalisés">
 
-<div class="mt-4 text-sm">
+<div class="mt-4 text-sm opacity-75">
 
-**Configuration YAML** — Logo · Couleurs · Serveur mail · Intégrations · Droits d'accès · _Sans réécrire une ligne de PHP._
+Garorock (festivals) · Aux Portes (immobilier) · V&A (architecture)
+
+**Même suite, interfaces adaptées.** YAML seul. Zéro fork du code.
 
 </div>
 
