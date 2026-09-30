@@ -21,9 +21,9 @@ Solutions Symfony, plateformes événementielles et services web durables, Borde
 <!--
 [Repère de répétition : lightning talk, 5 minutes chrono. Ne pas dépasser. Neuf slides, ~30-35s chacune en moyenne, plus de marge sur la slide anecdote (8) qui porte le message.]
 
-Bonjour à tous. Je suis Antoine, développeur chez Aropixel, une agence à Bordeaux qui fait du Symfony depuis plus de dix ans.
+Bonjour à tous. Je suis Joel, développeur chez Aropixel, une agence à Bordeaux qui fait du Symfony depuis plus de dix ans.
 
-Je vais vous parler cinq minutes d'un truc pas très sexy sur le papier : notre suite de bundles d'administration. Mais promis, il y a une bonne histoire à la fin.
+Je vais vous parler de notre suite de bundles d'administration open source.
 -->
 
 ---
@@ -61,7 +61,7 @@ On a extrait cette brique une bonne fois pour toutes, on l'a affinée projet apr
 <div class="grid grid-cols-2 gap-4 mt-6">
   <div class="aro-card">
     <h4>Admin</h4>
-    <p>Le cœur : back-office léger et extensible, <code>make:crud</code>, formulaires prêts à l'emploi.</p>
+    <p>Le cœur : back-office léger et extensible, <code>make:crud</code>, et des layout de formulaires.</p>
   </div>
   <div class="aro-card">
     <h4>Pages</h4>
@@ -80,14 +80,34 @@ On a extrait cette brique une bonne fois pour toutes, on l'a affinée projet apr
 <p class="mt-6 text-sm opacity-70">Licence MIT · compatibles PHP 8.5 & Symfony 8 · maintenus en continu</p>
 
 <!--
-Concrètement, c'est quatre bundles : Admin, qui est le cœur du pilotage, avec un générateur de CRUD et des FormTypes prêts à l'emploi. Pages, pour du contenu structuré façon page builder. Blog, pour l'éditorial. Et Menu, pour la navigation en drag & drop.
+Concrètement, c'est quatre bundles : 
+- Admin, qui est le cœur du pilotage, avec un générateur de CRUD, des FormTypes et leurs layouts prêts à l'emploi. 
+- Pages, pour du contenu structuré façon page builder. 
+- Blog, pour l'éditorial. 
+- Et Menu, pour la navigation en drag & drop.
 
-Tout est en licence MIT, compatible avec les dernières versions de PHP et Symfony, et surtout : c'est ce qu'on utilise en production, sur tous nos projets, pas une vitrine.
+Tout est en licence MIT, compatible avec les dernières versions de PHP et Symfony, et surtout : c'est ce qu'on utilise en production, sur tous nos projets, donc c'est éprouvé.
 -->
 
 ---
 
-<div class="kicker">Adaptable à chaque métier</div>
+<div class="kicker">En action</div>
+
+# make:crud part de votre FormType
+
+<img src="./assets/crud-generator.gif" class="mx-auto max-h-80 rounded-lg shadow" alt="Parcours d'un CRUD généré par make:crud : liste DataTable, formulaire, édition">
+
+<p class="mt-3 text-sm opacity-75">Vous écrivez le FormType. Le bundle génère le reste : routes, controller, listing DataTable, page de formulaire.</p>
+
+<!--
+Voilà à quoi ça ressemble. Vous écrivez votre FormType, comme vous le feriez sur n'importe quel projet Symfony. Et make:crud lit ce FormType pour générer tout ce qu'il y a autour : les routes, le controller, le listing avec tri et recherche, la page de formulaire.
+
+Le bundle est un facilitateur : il automatise le répétitif, et il part de votre code, pas l'inverse.
+-->
+
+---
+
+<div class="kicker">Pas une black box</div>
 
 # De l'événementiel à l'architecture
 
@@ -97,14 +117,14 @@ Tout est en licence MIT, compatible avec les dernières versions de PHP et Symfo
 
 Garorock (festival) · Aux Portes de Bordeaux (immobilier) · V&A (architecture)
 
-**Même suite, interfaces adaptées.** YAML seul. Zéro fork du code.
+**Une fondation, pas une cage.** Vos entités, vos FormTypes, vos controllers : c'est du Symfony, le bundle ne se met pas en travers.
 
 </div>
 
 <!--
-L'interface s'adapte à chaque client via YAML — logo, palette de couleurs, configuration du serveur de mail, integrations spécifiques — tout est réglable sans toucher au code.
+Trois clients, trois métiers qui n'ont rien à voir : un festival, de l'immobilier, un cabinet d'architecture. Et pourtant, la même fondation.
 
-Ça veut dire qu'un projet livré peut être customisé en quelques lignes de config, pas refactorisé à chaque fois.
+Ce qui compte, c'est que ce n'est pas une black box. Le métier de chaque projet reste dans du code Symfony ordinaire : vos entités, vos FormTypes, vos controllers. Le bundle donne un socle solide et une interface soignée, et ensuite il s'efface. Quand vous devez sortir des rails, vous n'avez rien à contourner.
 -->
 
 ---
@@ -114,10 +134,10 @@ L'interface s'adapte à chaque client via YAML — logo, palette de couleurs, co
 # Un back-office, une commande
 
 ```bash
-castor aropixel:new:admin mon-projet
+castor-starter aropixel:new:admin mon-projet
 ```
 
-<p class="mt-2 opacity-70">Docker · Varnish · Flysystem · Bundles à la carte · Déploiement Clever Cloud — tout prêt.</p>
+<p class="mt-2 opacity-70">Docker Starter de JoliCode · Varnish · Flysystem · Bundles à la carte · Déploiement Clever Cloud — tout prêt.</p>
 
 <v-click>
 
