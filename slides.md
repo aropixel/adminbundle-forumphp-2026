@@ -19,7 +19,7 @@ Aropixel
 Solutions Symfony, plateformes événementielles et services web durables, Bordeaux
 
 <!--
-[Repère de répétition : lightning talk, 5 minutes chrono. Ne pas dépasser. Neuf slides, ~30-35s chacune en moyenne, plus de marge sur la slide anecdote (8) qui porte le message.]
+[Repère de répétition : lightning talk, 5 minutes chrono. Ne pas dépasser. Dix slides plus une optionnelle (page builder) à sauter si le chrono dépasse 4 min. make:crud n'est révélé que sur la slide agents.]
 
 Bonjour à tous. Je suis Joel, développeur chez Aropixel, une agence à Bordeaux qui fait du Symfony depuis plus de dix ans.
 
@@ -91,18 +91,18 @@ Tout est en licence MIT, compatible avec les dernières versions de PHP et Symfo
 
 ---
 
-<div class="kicker">En action</div>
+<div class="kicker">À quoi ça ressemble</div>
 
-# make:crud part de votre FormType
+# Un back-office complet
 
-<img src="./assets/crud-generator.gif" class="mx-auto max-h-80 rounded-lg shadow" alt="Parcours d'un CRUD généré par make:crud : liste DataTable, formulaire, édition">
+<img src="./assets/crud-generator.gif" class="mx-auto max-h-80 rounded-lg shadow" alt="Parcours dans un back-office Aropixel : liste, formulaire à onglets, médias">
 
-<p class="mt-3 text-sm opacity-75">Vous écrivez le FormType. Le bundle génère le reste : routes, controller, listing DataTable, page de formulaire.</p>
+<p class="mt-3 text-sm opacity-75">Listing avec tri et recherche · formulaires à onglets · médias et recadrage · utilisateurs et rôles.</p>
 
 <!--
-Voilà à quoi ça ressemble. Vous écrivez votre FormType, comme vous le feriez sur n'importe quel projet Symfony. Et make:crud lit ce FormType pour générer tout ce qu'il y a autour : les routes, le controller, le listing avec tri et recherche, la page de formulaire.
+Voilà à quoi ça ressemble. Un listing avec tri, recherche et pagination. Un formulaire d'édition organisé en onglets, avec les images, les relations, l'éditeur riche. Les utilisateurs et les droits sont déjà là.
 
-Le bundle est un facilitateur : il automatise le répétitif, et il part de votre code, pas l'inverse.
+Rien d'exotique : c'est un back-office propre, et il vit dans votre projet Symfony, pas à côté.
 -->
 
 ---
@@ -129,57 +129,72 @@ Ce qui compte, c'est que ce n'est pas une black box. Le métier de chaque projet
 
 ---
 
-<div class="kicker">Le gain de temps</div>
+<div class="kicker">Bootstrap rapide · castor-starter</div>
 
-# Un back-office, une commande
+# Un projet en une commande
 
 ```bash
-castor-starter aropixel:new:admin mon-projet
+castor-starter aropixel:new:admin mon-projet --all
 ```
 
-<p class="mt-2 opacity-70">Docker Starter de JoliCode · Varnish · Flysystem · Bundles à la carte · Déploiement Clever Cloud — tout prêt.</p>
+<p class="mt-2 opacity-70">Docker Starter de JoliCode · Varnish · Mailpit · bundles à la carte · déploiement Clever Cloud · skills Claude Code — tout prêt.</p>
 
 <v-click>
 
 ```bash
-castor aropixel:contrib:admin ma-contrib
+castor-starter aropixel:contrib:admin ma-contrib
 ```
 
-<p class="mt-2 opacity-70">Même chose, mais pour contribuer à la suite elle-même : fork, sandbox, symlink — prêt en une commande.</p>
+<p class="mt-2 opacity-70">Même chose pour contribuer à la suite : fork, sandbox Symfony, bundle en symlink — prêt en une commande.</p>
 
 </v-click>
 
 <!--
-Le gain de temps, il est là : une commande, et on a un projet Symfony complet, avec Docker, le bundle Admin installé d'office, et le déploiement Clever Cloud déjà configuré.
+Pour démarrer, on a castor-starter, un runner de tâches Castor. Une commande, et on a un projet Symfony complet : le Docker Starter de JoliCode, le bundle Admin installé avec un compte administrateur, les bundles Page, Blog et Menu à la carte, et le déploiement Clever Cloud déjà configuré.
 
-Et si on doit contribuer à la suite elle-même — corriger un bug, ajouter une fonctionnalité — même chose : une commande nous monte un environnement de contribution complet, avec le bundle en symlink. Chaque modification est visible immédiatement, sans composer update.
+Et si on doit contribuer à la suite elle-même, même chose : une commande fork le bundle, monte une sandbox Symfony et l'installe en symlink. Chaque modification est visible immédiatement, sans composer update.
 -->
 
 ---
 
-<div class="kicker">Comment ça marche</div>
+<div class="kicker">La promesse</div>
 
-# FormTypes prêts à l'emploi
+# Des widgets en quelques lignes
+
+<div class="grid grid-cols-5 gap-4 text-sm">
+<div class="col-span-3">
 
 ```php
-// Entity/Article.php
-#[ORM\Column(type: 'string')]
-private string $mainColor;
-
-// Form/ArticleType.php
-$builder->add('mainColor', ColorType::class);
+$builder
+  ->add('title', TextType::class)
+  ->add('category', EntityType::class, [
+      'class' => Category::class,
+  ])
+  ->add('published', ToggleSwitchType::class)
+  ->add('cover', ImageType::class);
 ```
 
-Template : `{{ form_widget(form.mainColor) }}` → color picker automatique.
+</div>
+<div class="col-span-2">
 
-**Color picker · Date picker · Éditeur riche · Recherche AJAX · Collections · Fichiers**
+```twig
+{{ form_row(form.title) }}
+{{ form_row(form.category) }}
+{{ form_row(form.published) }}
+{{ form_row(form.cover) }}
+```
 
-Pas de JavaScript custom à écrire. Pas de plugin vendor à intégrer.
+</div>
+</div>
+
+<img src="./assets/form-widgets-example.png" class="mx-auto mt-3 max-h-36 rounded-lg shadow" alt="Le formulaire rendu : titre, catégorie, toggle publié, image de couverture avec upload">
+
+<p class="mt-2 text-sm opacity-75">Zéro configuration, zéro JavaScript. Pareil pour galeries, fichiers, collections, éditeur riche, dates, Select2…</p>
 
 <!--
-Un FormType, c'est juste quelques lignes. On spécifie le champ, on choisit le type, et Symfony/le bundle génère le widget. Plus besoin de coder un color picker à chaque fois.
+La promesse, c'est celle-là. Un FormType Symfony ordinaire : un texte, une relation, un booléen, une image. Un template avec quatre form_row. Et le résultat : un select, un toggle, un upload avec médiathèque partagée et recadrage.
 
-On a 13+ FormTypes prêts : couleurs, dates, time, éditeur riche, recherche AJAX, collections drag & drop, uploads de fichiers... Tout testé, tout documenté.
+Aucune configuration en plus, aucun JavaScript à écrire. Et c'est le même principe pour les galeries, les fichiers, les collections, l'éditeur riche, les dates.
 -->
 
 ---
@@ -189,30 +204,48 @@ On a 13+ FormTypes prêts : couleurs, dates, time, éditeur riche, recherche AJA
 # Agents, créez directement
 
 ```php
-// Agent prompt: "Create Article CRUD with color picker, 
-// rich editor, publication date, and tag management"
+// Prompt : "Crée l'admin des articles avec couleur,
+// éditeur riche, date de publication et tags"
 
-// Generated: ArticleType.php
+// Généré : ArticleType.php
 $builder
   ->add('title', TextType::class)
-  ->add('mainColor', ColorType::class)        // 🎨 Automatic
-  ->add('content', EditorType::class)         // 📝 WYSIWYG ready
-  ->add('publishedAt', DateTimeType::class)   // 📅 Date picker
-  ->add('tags', FilterableEntitiesType::class);// 🔍 AJAX search
+  ->add('mainColor', ColorType::class)         // color picker
+  ->add('content', EditorType::class)          // éditeur riche
+  ->add('publishedAt', DateTimeType::class)    // date picker
+  ->add('tags', FilterableEntitiesType::class); // recherche AJAX
 ```
 
-<div class="mt-6">
+<div class="mt-4">
 
-**`php bin/console make:crud Article`** génère :
+Puis **`bin/console aropixel:make:crud`** lit ce FormType et génère :
 
-**Entity** · **Form Type** · **Controller** (index/show/new/edit/delete) · **Templates** (index, show, form, delete)
+**Controller** (index, new, edit, delete) · **Listing DataTable** · **Template de formulaire**
 
 </div>
 
-<div class="text-sm opacity-75 mt-4">Agents et devs : même langage, même toolbox. ✨</div>
+<div class="text-sm opacity-75 mt-3">Skills Claude Code livrés par castor-starter. Agents et devs : même langage, même toolbox.</div>
 
 <!--
-Les FormTypes sont embarqués, les migrations générées, les templates tout prêts. Les agents utilisent make:crud exactement comme les devs — pas de dialect spécial, pas de couche supplémentaire. C'est ça, IA-ready : une toolbox que n'importe quel agent peut piloter, qui génère du code de production immédiatement.
+Et c'est là que ça devient intéressant avec les agents. Comme tout est du Symfony ordinaire, un agent écrit le FormType exactement comme un dev. Ensuite make:crud lit ce FormType et génère le controller, le listing et le template de formulaire.
+
+Pas de dialecte spécial, pas de couche en plus. castor-starter livre même les skills Claude Code dans le projet. C'est ça, prêt pour les agents : une toolbox qu'ils pilotent avec le même langage que nous, et qui sort du code de production.
+-->
+
+---
+
+<div class="kicker">S'il reste du temps</div>
+
+# PageBundle : le page builder
+
+<img src="./assets/page-builder-preview.gif" class="mx-auto max-h-80 rounded-lg shadow" alt="Le page builder visuel de PageBundle">
+
+<p class="mt-3 text-sm opacity-75">Blocs visuels · HTML pré-rendu · pages fixes · champs SEO. Une alternative légère au CMS.</p>
+
+<!--
+[Optionnelle : à sauter si le chrono dépasse 4 min en arrivant ici.]
+
+Un dernier mot sur PageBundle. C'est un page builder par blocs, avec du HTML pré-rendu, des pages fixes et les champs SEO. Pour la plupart de nos sites, ça remplace un CMS.
 -->
 
 ---
