@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap');
+
+:root {
+  /* Aropixel brand tokens — lifted from aropixel.com's computed CSS custom properties */
+  --slidev-theme-primary: #56f1c5;
+  --aro-brand: #56f1c5;
+  --aro-xdark: #0a0a0a;
+  --aro-dark: #555563;
+  --aro-default: #e5e5e5;
+  --aro-light: #f9fafb;
+  --aro-xlight: #faf9fb;
+  --aro-white: #ffffff;
+  --aro-radius: 6px;
+  --aro-radius-xl: 16px;
+}
+
+.slidev-layout.cover,
+.slidev-layout.intro {
+  @apply h-full grid;
+  h1 {
+    @apply text-6xl leading-20;
+  }
+}
+
+.slidev-layout {
+  @apply h-full grid content-center;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5em;
+  color: var(--aro-xdark);
+  background: var(--aro-xlight);
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+  }
+
+  h1 + p {
+    @apply mt-6 mb-4;
+  }
+
+  /* "Subtitle" dimming: only when nothing follows the first paragraph */
+  h1 + p:last-child {
+    @apply -mt-2 mb-4 opacity-60;
+  }
+
+  /* Explicit subtitle (cover): pulled close to the title, dimmed */
+  .subtitle {
+    @apply -mt-2 mb-10 opacity-60;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+  }
+
+  p + h2, ul + h2, table + h2 {
+    @apply mt-10;
+  }
+
+  h1 {
+    @apply text-5xl mb-4 -ml-[0.05em];
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-base;
+  }
+
+  ul, ol {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* small square accent bullet, matching aropixel.com's kicker dots */
+  .kicker {
+    @apply inline-flex items-center gap-2 opacity-70 mb-2;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.6em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .kicker::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--aro-brand);
+    border-radius: 2px;
+  }
+}
+
+.slidev-layout.statement {
+  @apply text-center grid h-full;
+
+  h1 {
+    @apply text-6xl font-700;
+  }
+}
+
+.slidev-page {
+  border-bottom: 10px solid var(--aro-brand);
+}
+
+/*
+ * Slidev's presenter "Goto slide" dialog (#slidev-goto-dialog) only offsets
+ * itself by a fixed -80px when closed. With a 9-slide deck the title list is
+ * taller than that, so it bleeds into view at the top-right of the presenter
+ * window even when nobody pressed "g". Force it fully hidden until Slidev
+ * itself swaps in the "top-5" (open) class, instead of relying on the offset
+ * alone — the search feature itself is untouched.
+ */
+#slidev-goto-dialog.-top-20 {
+  visibility: hidden;
+  pointer-events: none;
+}
+#slidev-goto-dialog.top-5 {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+b, strong {
+  font-weight: 600;
+  display: inline-block;
+  background-color: rgba(86, 241, 197, 0.45);
+  border-radius: 3px;
+  padding: 0 4px;
+}
+
+code {
+  border-radius: var(--aro-radius);
+}
+
+.slidev-code {
+  --slidev-code-font-size: 19px;
+  --slidev-code-line-height: 23px;
+  border-radius: var(--aro-radius-xl);
+}
+
+.slidev-code-small .slidev-code, [layoutclass="slidev-code-small"] .slidev-code {
+  --slidev-code-font-size: 13px;
+  --slidev-code-line-height: 18px;
+}
+
+/* card, used for the 4-bundle grid */
+.aro-card {
+  background: var(--aro-white);
+  border: 1px solid var(--aro-default);
+  border-radius: var(--aro-radius-xl);
+  padding: 1em 1.2em;
+  text-align: left;
+}
+.aro-card h4 {
+  margin-bottom: 0.2em;
+}
+.aro-card p {
+  font-size: 0.62em;
+  opacity: 0.75;
+  margin: 0;
+}

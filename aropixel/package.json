@@ -1,0 +1,29 @@
+{
+  "name": "slidev-theme-aropixel",
+  "version": "0.0.0",
+  "type": "module",
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@slidev/types": "^51.4.0"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^51.4.0"
+  },
+  "//": "Learn more: https://sli.dev/guide/write-theme.html",
+  "slidev": {
+    "colorSchema": "light",
+    "defaults": {
+      "fonts": {
+        "sans": "Inter",
+        "serif": "Inter",
+        "mono": "Fira Code"
+      }
+    }
+  }
+}
