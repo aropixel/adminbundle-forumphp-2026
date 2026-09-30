@@ -95,7 +95,7 @@ Tout est en licence MIT, compatible avec les dernières versions de PHP et Symfo
 
 <div class="mt-4 text-sm opacity-75">
 
-Garorock (festivals) · Aux Portes (immobilier) · V&A (architecture)
+Garorock (festival) · Aux Portes de Bordeaux (immobilier) · V&A (architecture)
 
 **Même suite, interfaces adaptées.** YAML seul. Zéro fork du code.
 
