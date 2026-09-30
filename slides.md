@@ -117,7 +117,7 @@ L'interface s'adapte à chaque client via YAML — logo, palette de couleurs, co
 castor aropixel:new:admin mon-projet
 ```
 
-<p class="mt-2 opacity-70">Docker prêt, bundles à la carte, déploiement Clever Cloud inclus.</p>
+<p class="mt-2 opacity-70">Docker · Varnish · Flysystem · Bundles à la carte · Déploiement Clever Cloud — tout prêt.</p>
 
 <v-click>
 
