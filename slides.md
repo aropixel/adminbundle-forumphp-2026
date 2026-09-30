@@ -179,9 +179,15 @@ $builder
   ->add('tags', FilterableEntitiesType::class);// 🔍 AJAX search
 ```
 
-**`php bin/console make:crud Article`** — formulaire complet, template Twig, controller routes. Tout fonctionne. Zéro customisation.
+<div class="mt-6">
 
-Agents et devs : même langage, même boîte à outils. ✨
+**`php bin/console make:crud Article`** génère :
+
+**Entity** · **Form Type** · **Controller** (index/show/new/edit/delete) · **Templates** (index, show, form, delete)
+
+</div>
+
+<div class="text-sm opacity-75 mt-4">Agents et devs : même langage, même toolbox. ✨</div>
 
 <!--
 Les FormTypes sont embarqués, les migrations générées, les templates tout prêts. Les agents utilisent make:crud exactement comme les devs — pas de dialect spécial, pas de couche supplémentaire. C'est ça, IA-ready : une toolbox que n'importe quel agent peut piloter, qui génère du code de production immédiatement.
