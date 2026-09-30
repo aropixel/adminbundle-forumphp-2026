@@ -228,7 +228,7 @@ Aucune configuration en plus, aucun JavaScript à écrire.
 
 <div class="kicker">Embarqués dans le bundle</div>
 
-# Dix-neuf FormTypes prêts à l'emploi
+# 19 FormTypes prêts à l'emploi
 
 <div class="grid grid-cols-3 gap-4 mt-4 text-xs">
   <div class="aro-card">
@@ -266,7 +266,11 @@ Aucune configuration en plus, aucun JavaScript à écrire.
 <p class="mt-4 text-sm opacity-75">Chacun a son bloc Twig, surchargeable dans votre form theme.</p>
 
 <!--
-Le bundle en embarque dix-neuf FormTy, documentés. Les médias : images, galeries, fichiers, vidéo. Les données : Select2 avec recherche AJAX, collections triables, champs traduisibles. La saisie : éditeur riche, dates, couleur, toggle.
+Le bundle en embarque dix-neuf FormTypes, documentés, en plus de FormTypes Symfony designés. 
+
+- Les médias : images, galeries, fichiers, vidéo. 
+- Les données : Select2 avec recherche AJAX, collections triables, champs traduisibles. 
+- La saisie : éditeur, dates, couleur, toggle.
 
 Chaque type a son bloc Twig. Si le rendu ne vous convient pas, vous le surchargez dans votre form theme, comme d'habitude.
 -->
@@ -277,33 +281,44 @@ Chaque type a son bloc Twig. Si le rendu ne vous convient pas, vous le surcharge
 
 # Agents, créez directement
 
-```php
-// Prompt : "Crée l'admin des articles avec couleur,
-// éditeur riche, date de publication et tags"
-
-// Généré : ArticleType.php
-$builder
-  ->add('title', TextType::class)
-  ->add('mainColor', ColorType::class)         // color picker
-  ->add('content', EditorType::class)          // éditeur riche
-  ->add('publishedAt', DateTimeType::class)    // date picker
-  ->add('tags', FilterableEntitiesType::class); // recherche AJAX
-```
-
-<div class="mt-4">
-
-Puis **`bin/console aropixel:make:crud`** lit ce FormType et génère :
-
-**Controller** (index, new, edit, delete) · **Listing DataTable** · **Template de formulaire**
-
+<div class="aro-prompt">
+<span class="aro-prompt-label">Prompt</span>
+« Crée l'admin des articles : titre, couleur, éditeur riche, date de publication et tags. »
 </div>
 
-<div class="text-sm opacity-75 mt-3">Skills Claude Code livrés par castor-starter. Agents et devs : même langage, même toolbox.</div>
+<div class="grid grid-cols-2 gap-5 mt-3">
+<div class="slidev-code-small">
+
+```php
+// src/Form/ArticleType.php
+$builder
+  ->add('title', TextType::class)
+  ->add('mainColor', ColorType::class)
+  ->add('content', EditorType::class)
+  ->add('publishedAt', DateTimeType::class)
+  ->add('tags', FilterableEntitiesType::class);
+```
+
+</div>
+<div class="aro-files">
+
+Puis `aropixel:make:crud` génère :
+
+- `src/Controller/Admin/ArticleController.php` — index (DataTable), new, edit, delete
+- `templates/admin/article/index.html.twig` — liste
+- `templates/admin/article/form.html.twig` — formulaire
+
+</div>
+</div>
+
+<div class="text-sm opacity-75 mt-3">La skill Claude Code, livrée par castor-starter, complète colonnes, recherche et tri. Agents et devs : même toolbox.</div>
 
 <!--
-Et c'est là que ça devient intéressant avec les agents. Comme tout est du Symfony ordinaire, un agent écrit le FormType exactement comme un dev. Ensuite make:crud lit ce FormType et génère le controller, le listing et le template de formulaire.
+Et là, les agents. Un prompt : crée l'admin des articles, avec titre, couleur, éditeur riche, date et tags.
 
-Pas de dialecte spécial, pas de couche en plus. castor-starter livre même les skills Claude Code dans le projet. C'est ça, prêt pour les agents : une toolbox qu'ils pilotent avec le même langage que nous, et qui sort du code de production.
+Comme tout est du Symfony ordinaire, l'agent écrit le FormType comme un dev. Puis make:crud génère le controller avec ses quatre méthodes, le template de liste et celui du formulaire. La skill livrée par castor-starter complète colonnes, recherche et tri.
+
+Pas de dialecte spécial, pas de couche en plus : les agents pilotent la même toolbox que nous.
 -->
 
 ---

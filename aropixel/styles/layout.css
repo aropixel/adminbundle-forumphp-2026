@@ -155,6 +155,35 @@ code {
   --slidev-code-line-height: 18px;
 }
 
+/* prompt callout: the one thing to read on the agents slide */
+.aro-prompt {
+  background: var(--aro-white);
+  border: 1px solid var(--aro-default);
+  border-left: 6px solid var(--aro-brand);
+  border-radius: var(--aro-radius-xl);
+  padding: 0.5em 0.9em;
+  font-size: 0.95em;
+  line-height: 1.3;
+}
+.aro-prompt .aro-prompt-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.55em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 0.3em;
+}
+.aro-files li {
+  font-size: 0.72em;
+  line-height: 1.35;
+  margin-bottom: 0.35em;
+}
+.aro-files code {
+  font-size: 0.9em;
+}
+
 /* card, used for the 4-bundle grid */
 .aro-card {
   background: var(--aro-white);
