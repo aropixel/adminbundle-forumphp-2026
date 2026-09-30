@@ -164,24 +164,27 @@ On a 13+ FormTypes prêts : couleurs, dates, time, éditeur riche, recherche AJA
 
 <div class="kicker">Prête pour les agents</div>
 
-# IA-ready, pas juste dans le nom
+# Agents, créez directement
 
-<v-clicks>
+```php
+// Agent prompt: "Create Article CRUD with color picker, 
+// rich editor, publication date, and tag management"
 
-- Les **skills Claude Code** sont embarqués dans le projet dès sa création
-- Cette semaine : un agent a **trouvé et corrigé 3 bugs réels**, en quelques minutes
-- Autowiring cassé, collision de champs, un bug d'affichage en CSS flex — trois PR propres, scopées, testées
+// Generated: ArticleType.php
+$builder
+  ->add('title', TextType::class)
+  ->add('mainColor', ColorType::class)        // 🎨 Automatic
+  ->add('content', EditorType::class)         // 📝 WYSIWYG ready
+  ->add('publishedAt', DateTimeType::class)   // 📅 Date picker
+  ->add('tags', FilterableEntitiesType::class);// 🔍 AJAX search
+```
 
-</v-clicks>
+**`php bin/console make:crud Article`** — formulaire complet, template Twig, controller routes. Tout fonctionne. Zéro customisation.
+
+Agents et devs : même langage, même boîte à outils. ✨
 
 <!--
-Et le point qui compte vraiment aujourd'hui : cette suite est pensée pour être manipulée par des agents, pas juste par des humains.
-
-Les skills Claude Code sont embarqués dans chaque projet dès sa création. Et cette semaine, très concrètement, en retravaillant la documentation avec un agent, on a découvert trois bugs réels dans le bundle : une interface mal autowirée, une collision de rendu sur deux champs, et un bug d'affichage plus subtil — un conteneur qui s'effondrait à largeur zéro sous flexbox.
-
-L'agent a diagnostiqué chaque cas, cloné notre environnement de contribution en une commande, appliqué le correctif, et ouvert des pull requests propres et bien scopées. Pas des rustines, de vrais fixes, au bon endroit.
-
-C'est ça, être IA-ready : pas un slogan, une infrastructure de contribution que les agents peuvent réellement utiliser.
+Les FormTypes sont embarqués, les migrations générées, les templates tout prêts. Les agents utilisent make:crud exactement comme les devs — pas de dialect spécial, pas de couche supplémentaire. C'est ça, IA-ready : une toolbox que n'importe quel agent peut piloter, qui génère du code de production immédiatement.
 -->
 
 ---
