@@ -35,10 +35,4 @@ npm run export
 
 ## Timing
 
-9 slides pour 5 minutes chrono — environ 30 à 35 secondes par slide en moyenne, avec
-plus de marge sur la slide « IA-ready » qui porte le message central du talk (l'anecdote
-des 3 bugs trouvés et corrigés par un agent cette semaine, via `castor
-aropixel:contrib:admin`).
-
-À adapter avant de monter sur scène : le nom du speaker (`Antoine — Aropixel` en slide
-de couverture) et le lien de contact final si besoin.
+9 slides pour 5 minutes chrono — environ 30 à 35 secondes par slide en moyenne.
